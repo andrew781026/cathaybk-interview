@@ -1,0 +1,12 @@
+.info-block{
+    display: flex;
+    align-items: center;
+}
+
+.indicator{
+    height: 50px;
+    min-width: 50px;
+    background-image: url("../images/arrow-right@3x.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
