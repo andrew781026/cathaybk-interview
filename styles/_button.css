@@ -71,3 +71,17 @@ button:focus:not(:focus-visible) {
 .btn.is-round {
     border-radius: 999px;
 }
+
+.btn-secondary {
+    margin: auto;
+}
+
+.btn-secondary {
+    width: 100%;
+}
+
+@media (min-width: 576px) {
+    .btn-secondary {
+        width: 33.33%;
+    }
+}
