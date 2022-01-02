@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>國泰世華分行預約</title>
+    <style>
+        :root{
+
+            /* https://htmlcolorcodes.com/ */
+            --red: #FF0000;
+            --orange:#F39C12;
+            --black:#333333;
+            --green: #01994e;
+
+            --blue:  #0000FF;
+            --white:#fff;
+            --silver:  #C0C0C0;
+            --gray:#808080;
+            --gray-dark:#707B7C;
+        }
+
+        *,*:before,*:after{
+            box-sizing: border-box;
+        }
+
+        body{
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .header{
+            width: 100vw;
+            background-color: var(--green);
+            color: var(--white);
+            padding: 10px 40px;
+            display: flex;
+            align-items: center;
+            font-size: 1.25rem;
+        }
+
+        .flex-1{
+            flex : 1 ;
+        }
+
+        .text-orange{
+            color: var(--orange);
+        }
+
+        .w-full{
+            width: 100%;
+        }
+
+        .h-full{
+            height: 100%;
+        }
+
+        .banner{
+            height: 250px;
+            position: relative;
+        }
+
+        .banner img:nth-of-type(2){
+            position: absolute;
+            left: 0;
+        }
+
+        .banner img:nth-of-type(1){
+            position: absolute;
+            right: 0;
+        }
+
+        .banner .box{
+            position: absolute;
+            left: 100px;
+            top:50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            z-index: 2;
+            color: var(--white);
+        }
+
+        .banner .box .title{
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .banner .box .desc{
+            font-size: 1.25rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .goTop{
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+        }
+
+        footer.footer{
+            display: flex;
+            justify-content: center;
+            padding: 16px;
+            background-color: var(--silver);
+            color: var(--gray);
+        }
+
+
+
+
+        /* bootstrap container setting */
+        @media (min-width: 1200px){
+            .container {
+                max-width: 1140px;
+            }
+        }
+        @media (min-width: 992px){
+            .container {
+                max-width: 960px;
+            }
+        }
+        @media (min-width: 768px){
+            .container {
+                max-width: 720px;
+            }
+        }
+        @media (min-width: 576px){
+            .container {
+                max-width: 540px;
+            }
+        }
+
+        .container {
+            width: 100%;
+            padding-right: 15px;
+            padding-left: 15px;
+            margin-right: auto;
+            margin-left: auto;
+        }
+
+
+
+        @media (min-width: 576px){
+            .main button{
+
+            }
+        }
+
+        .main button{
+
+        }
+    </style>
+</head>
+<body>
+<header class="header">
+    <img src="images/logo--pc.png" alt="logo">
+    <div class="flex-1"></div>
+    <span>分行服務預約</span>
+</header>
+<div class="banner">
+    <img src="images/pictures.png" alt="pic">
+    <img src="images/pcnew-copy.png" alt="copy">
+    <div class="box">
+        <span class="title">分行服務預約</span>
+        <span class="desc">事先網路預約</span>
+        <span class="desc">減少等待時間</span>
+    </div>
+</div>
+<div class="main flex-1">
+    <div class="container">
+        <div>
+            <span>簡單</span>
+            <span class="text-orange"> 3 </span>
+            <span>步驟，輕鬆便利完成預約</span>
+        </div>
+        <div></div>
+        <div>
+            <button class="btn btn-secondary">立即預約</button>
+        </div>
+    </div>
+</div>
+<footer class="footer">
+    © 國泰世華商業銀行股份有限公司
+</footer>
+<div class="goTop">
+    <img class="w-full h-full" src="images/go-top@3x.png" alt="go-top">
+</div>
+</body>
+</html>
