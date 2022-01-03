@@ -8,6 +8,10 @@
 
 切版說明 1.選擇縣市後彈出分行所在位置表格 2.選擇分行後才列出日期與時間
 
+切版畫面：
+- [第一頁](https://andrew781026.github.io/cathaybk-interview/first.html)
+- [第二頁](https://andrew781026.github.io/cathaybk-interview/second.html)
+
 ----
 
 Quiz :
