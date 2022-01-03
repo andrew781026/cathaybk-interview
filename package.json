@@ -12,6 +12,7 @@
     "gulp": "^4.0.2",
     "gulp-clean-css": "^4.3.0",
     "gulp-imagemin": "^7.1.0",
+    "gulp-markdown": "^6.0.0",
     "gulp-sass": "5.0.0",
     "gulp-watch": "^5.0.1",
     "sass": "^1.44.0",

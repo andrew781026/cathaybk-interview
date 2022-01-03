@@ -1,7 +1,8 @@
-const {watch, src, dest, series, parallel, task} = require('gulp')
-const sass = require('gulp-sass')(require('sass'))
-const imagemin = require('gulp-imagemin')
-const browserSync = require('browser-sync').create()
+const {watch, src, dest, series, parallel, task} = require('gulp');
+const sass = require('gulp-sass')(require('sass'));
+const markdown = require('gulp-markdown');
+const imagemin = require('gulp-imagemin');
+const browserSync = require('browser-sync').create();
 
 const ROOT = __dirname
 const config = {
