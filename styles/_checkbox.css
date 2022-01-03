@@ -1,7 +1,8 @@
 /* The checkbox-wrap */
 .checkbox-wrap {
-    display: flex;
-    margin: 8px 8px 8px 0;
+    display: inline-flex;
+    margin: 0;
+    padding: 0;
     position: relative;
     line-height: 1.5;
     font-size: 1rem;
@@ -12,15 +13,15 @@
     border-radius: 0.25rem;
 }
 
+.checkbox-wrap input[type="checkbox"] {
+    display: none;
+}
+
 .checkbox-wrap input[type="checkbox"]:disabled + .checkmark{
     cursor: not-allowed;
     background-color: var(--silver-light);
     opacity: 1;
     color: var(--silver);
-}
-
-.checkbox-wrap input[type="checkbox"] {
-    display: none;
 }
 
 .checkbox-wrap input[type="checkbox"] + .checkmark {

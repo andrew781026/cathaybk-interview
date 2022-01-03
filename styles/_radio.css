@@ -1,0 +1,31 @@
+.radio-wrap {
+    display: inline-flex;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    user-select: none;
+    width: 20px;
+    height: 20px;
+    border: 1px solid var(--border-color);
+    border-radius: 50%;
+    justify-content: center;
+    align-items: center;
+}
+
+.radio-wrap input[type="radio"] {
+    display: none;
+}
+
+.radio-wrap input[type="radio"]:disabled + .radiomark {
+    cursor: not-allowed;
+    background-color: var(--silver-light);
+    opacity: 1;
+    color: var(--silver);
+}
+
+.radio-wrap input[type="radio"]:checked + .radiomark {
+    width: 60%;
+    height: 60%;
+    border-radius: 50%;
+    background-color: var(--green);
+}

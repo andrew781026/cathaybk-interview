@@ -61,6 +61,49 @@
                     <option>汐止區</option>
                     <option>新莊區</option>
                 </select>
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                        <tr>
+                            <th class="min-w-80">選擇</th>
+                            <th class="min-w-120">分行名稱</th>
+                            <th class="min-w-300">地址</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>
+                                <label class="radio-wrap">
+                                    <input type="radio" name="radio">
+                                    <span class="radiomark"></span>
+                                </label>
+                            </td>
+                            <td>營業部</td>
+                            <td class="text-left">台北市信義區松仁路7號</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label class="radio-wrap">
+                                    <input type="radio" name="radio">
+                                    <span class="radiomark"></span>
+                                </label>
+                            </td>
+                            <td>信義分行</td>
+                            <td class="text-left">台北市信義區信義路</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label class="radio-wrap">
+                                    <input type="radio" name="radio">
+                                    <span class="radiomark"></span>
+                                </label>
+                            </td>
+                            <td>松山分行</td>
+                            <td class="text-left">台北市信義區基隆路一段151號</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
                 <div class="error-block">該區域目前無分行服務，請選擇其他區域</div>
             </div>
         </div>
@@ -81,16 +124,29 @@
         <div class="row">
             <label for="">預約時間</label>
             <div class="input-block">
-                <label class="checkbox-wrap">
-                    <input type="checkbox">
-                    <div class="checkmark">09:00</div>
-                </label>
-                <label class="checkbox-wrap">
-                    <input type="checkbox" disabled>
-                    <div class="checkmark">09:00</div>
-                </label>
-                <input type="text" value="A123456789" disabled>
-                <div class="error-block">請選擇銀行營業日</div>
+                <div class="date-picker-wrap">
+                    <label class="checkbox-wrap">
+                        <input type="checkbox" disabled>
+                        <span class="checkmark">09:00</span>
+                    </label>
+                    <label class="checkbox-wrap">
+                        <input type="checkbox">
+                        <span class="checkmark">10:00</span>
+                    </label>
+                    <label class="checkbox-wrap">
+                        <input type="checkbox">
+                        <span class="checkmark">11:00</span>
+                    </label>
+                    <label class="checkbox-wrap">
+                        <input type="checkbox">
+                        <span class="checkmark">13:00</span>
+                    </label>
+                    <label class="checkbox-wrap">
+                        <input type="checkbox" disabled>
+                        <span class="checkmark">14:00</span>
+                    </label>
+                </div>
+                <div class="error-block">若該分行無可預約時段，可選擇鄰近分行。</div>
             </div>
         </div>
 

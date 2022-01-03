@@ -7,6 +7,8 @@
 @import url("_display.css");
 @import url("_select.css");
 @import url("_checkbox.css");
+@import url("_table.css");
+@import url("_radio.css");
 
 :root {
 
@@ -15,6 +17,7 @@
     --orange: #ff6000;
     --black: #333333;
     --green: #01994e;
+    --green-light: #c2ffe1;
 
     --blue: #0000FF;
     --white: #fff;
@@ -26,8 +29,8 @@
 }
 
 ::-webkit-scrollbar {
-    height: 12px;  /* height of horizontal scrollbar ← You're missing this */
-    width: 12px;   /* width of vertical scrollbar */
+    height: 12px; /* height of horizontal scrollbar ← You're missing this */
+    width: 12px; /* width of vertical scrollbar */
     background-color: #F5F5F5;
 }
 
@@ -45,6 +48,26 @@ body {
     display: flex;
     flex-direction: column;
     font-family: 'Noto Sans TC', sans-serif;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.min-w-80 {
+    min-width: 80px;
+}
+
+.min-w-120 {
+    min-width: 120px;
+}
+
+.min-w-300 {
+    min-width: 300px;
 }
 
 .header {
@@ -113,7 +136,7 @@ body {
     font-size: 20px;
 }
 
-a{
+a {
     width: 100%;
     display: flex;
     text-decoration: none;

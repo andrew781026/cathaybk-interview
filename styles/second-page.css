@@ -8,7 +8,7 @@ table th {
     margin-bottom: 1rem;
 }
 
-.form-group label:not(.checkbox-wrap) {
+label {
     display: inline-block;
     width: 300px;
     text-align: right;
@@ -26,6 +26,12 @@ table th {
 .form-group .input-block {
     display: inline-block;
     width: calc(100% - 330px);
+}
+
+.date-picker-wrap {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
 }
 
 .form-group input {
@@ -52,7 +58,7 @@ input:disabled, input[readonly] {
 
 @media (max-width: 576px) {
 
-    .form-group label {
+    label {
         display: block;
         text-align: left;
         padding-right: 0.75rem;
