@@ -2,14 +2,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap');
 
 /* 分檔 css - github-page 上 @import 沒作用 , 待解決 */
-@import url("_reboot.css");
-@import url("_button.css");
-@import url("_display.css");
-@import url("_select.css");
-@import url("_checkbox.css");
-@import url("_table.css");
-@import url("_radio.css");
-@import url("_step.css");
+@import '_button';
+@import '_checkbox';
+@import '_display';
+@import '_radio';
+@import '_reboot';
+@import '_select';
+@import '_step';
+@import '_table';
 
 :root {
 
