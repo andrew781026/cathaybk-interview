@@ -7,6 +7,12 @@ const fs = require('fs');
 
 const ROOT = __dirname
 const config = {
+    watchGlobs: [
+        './src/js/*.js',
+        './src/*.html',
+        './src/*.md',
+        './src/scss/**/*.scss',
+    ],
     src: {
         js: ROOT + '/src/js/*.js',
         html: ROOT + '/src/*.html',
@@ -38,9 +44,6 @@ const minifyMD = (cb, file) => {
 }
 
 const minifySCSS = (cb, file) => {
-
-    console.log(file)
-
     let source = file ? file : config.src.scss
     return src(source)
         .pipe(sass({outputStyle: 'compressed',}).on('error', sass.logError))
@@ -98,7 +101,7 @@ const livereload = () => {
 
 const livewatch = (cb) => {
 
-    const watcher = watch(Object.values(config.src));
+    const watcher = watch(config.watchGlobs);
 
     const compileTargetFile = (path, type) => {
         console.log(`File ： ${path} ${type}`)

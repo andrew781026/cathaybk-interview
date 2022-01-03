@@ -114,6 +114,18 @@
 
 @media (max-width: 576px) {
 
+    .banner .box {
+        left: 20px;
+    }
+
+    .banner .box .desc {
+        display: none;
+    }
+
+    .banner {
+        height: 150px;
+    }
+
     .info-block {
         flex-direction: column;
     }
