@@ -1,7 +1,7 @@
 /* google font - Noto Sans TC */
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap');
 
-/* 分檔 css */
+/* 分檔 css - github-page 上 @import 沒作用 , 待解決 */
 @import url("_reboot.css");
 @import url("_button.css");
 @import url("_display.css");
@@ -50,7 +50,6 @@ body {
     display: flex;
     flex-direction: column;
     font-family: 'Noto Sans TC', sans-serif;
-    margin: 0;
 }
 
 .text-center {
