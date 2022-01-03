@@ -9,6 +9,7 @@
 @import url("_checkbox.css");
 @import url("_table.css");
 @import url("_radio.css");
+@import url("_step.css");
 
 :root {
 
@@ -22,6 +23,7 @@
     --blue: #0000FF;
     --white: #fff;
     --silver-light: #e9ecef;
+    --silver-drak: #c0c4cc;
     --silver: #C0C0C0;
     --gray: #808080;
     --gray-dark: #707B7C;
@@ -179,8 +181,8 @@ footer.footer {
     display: flex;
     justify-content: center;
     padding: 16px;
-    background-color: var(--silver);
-    color: var(--gray);
+    background-color: var(--silver-light);
+    color: var(--silver);
 }
 
 /* bootstrap container setting */
