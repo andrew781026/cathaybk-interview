@@ -15,11 +15,60 @@
 <ol>
 <li>Simply to writing down differences between <strong>one-way data flow</strong> and <strong>two-way data binding</strong>?</li>
 </ol>
-<p>單向資料流： v-model 也可以想成 :value=&quot;value&quot; + @input=&quot;$emit(&#39;input&#39;, $event.target.value)&quot; 的整合處理<br>明確聲明資料改動時更新 element 顯示值 &amp; 輸入時 , 更新 component 中的值 雙向綁定：v-model 是 vue 中的雙向綁定 , 資料會影響 element 顯示的值 , 值修改時會影響資料</p>
+<ul>
+<li>單向資料流： v-model 也可以想成 :value=&quot;value&quot; + @input=&quot;$emit(&#39;input&#39;, $event.target.value)&quot; 的整合處理<br>明確聲明資料改動時更新 element 顯示值 &amp; 輸入時 , 更新 component 中的值</li>
+<li>雙向綁定：v-model 是 vue 中的雙向綁定 , 資料會影響 element 顯示的值 , 值修改時會影響資料</li>
+</ul>
 <ol start="2">
 <li>What is different between <strong>computed</strong>, <strong>watch</strong> and <strong>method()</strong>?</li>
 </ol>
-<p>computed： watch： method：</p>
+<ul>
+<li>computed： 從某個數值計算出的暫存值 , 原值改變時 , 會更著改變</li>
+<li>watch： 監聽某個數值 , 改動其他數值</li>
+<li>method：執行的方法 , 裡面可以放 $emit 改變父層的值</li>
+</ul>
+<pre><code class="language-vue">&lt;template&gt;
+  &lt;div id=&quot;app&quot;&gt;
+    &lt;p&gt;請輸入使用者名稱。&lt;/p&gt;
+    &lt;input type=&quot;text&quot; v-model=&quot;lastName&quot;&gt;
+    &lt;input type=&quot;text&quot; v-model=&quot;firstName&quot;&gt;
+    &lt;p&gt;全名是 : {{ userName }}&lt;/p&gt;
+    &lt;p&gt;{{ errMsg }}&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+export default {
+  data() {
+
+    return {
+      lastName: &#39;&#39;,
+      firstName: &#39;&#39;,
+      errMsg: &#39;&#39;
+    }
+  },
+  watch: {
+    userName: function (value) {
+      if (this._valid(value)) {
+        this.errMsg = &#39;使用者名稱開頭不可為數字。&#39;
+      } else {
+        this.errMsg = &#39;合法的使用者名稱。&#39;;
+      }
+    }
+  },
+  methods: {
+    _valid: function (name) {
+      return /^[0-9]/.test(name);
+    }
+  },
+  computed: {
+    userName() {
+      return this.lastName + &#39; &#39; + this.firstName;
+    }
+  }
+}
+&lt;/script&gt;
+</code></pre>
 <ol start="3">
 <li>List some of <strong>ES6 features</strong> and explaining a bit about it.</li>
 </ol>
@@ -32,6 +81,11 @@
 <ol start="4">
 <li>Briefing a bit about <strong>Vuex</strong> and how does it work, also <strong>when most of time were you using it</strong>?</li>
 </ol>
+<p>Vuex 跟 Redux 是為了處理多層 component 傳值的 issue 而出現的 , 因此如果 component 超過 4 層需要傳值 , 就可以考慮使用之</p>
+<p><img src="https://cloud.netlifyusercontent.com/assets/344dbf88-fdf9-42bb-adb4-46f01eedd629/cbd8cb0f-97ee-4da0-8913-ac9892621c91/redux-example-css-tricks-opt.pg_" alt="多層 component 傳值的 issue"></p>
+<blockquote>
+<p>為了 Debug 方便 , 建議使用 <code>Getter</code> . <code>Mutation</code> . <code>Action</code> 來處理 $store 內部的值存取</p>
+</blockquote>
 <ol start="5">
 <li>Explain how you can use JavaScript functions such as <strong>forEach</strong>, <strong>Map</strong>, or <strong>Reduce</strong>.</li>
 </ol>
@@ -66,8 +120,10 @@ console.log(shout(&quot;send in the clowns&quot;)); // 顯示 : &quot;SEND IN TH
 <ol start="7">
 <li>What is different between <strong>framework base website</strong> and <strong>normal website (none framework)</strong></li>
 </ol>
-<p>framework base website(vue.react.angular)：html 的 dom 元素大多是用 JS 根據資料產生出來 normal website(jquery)：有定義 html 的 tag , html 的
-dom 元素在 JS 處理前就存在</p>
+<ul>
+<li>framework base website(vue.react.angular)：html 的 dom 元素大多是用 JS 根據資料產生出來 normal website(jquery)：有定義 html 的 tag , html 的</li>
+<li>dom 元素在 JS 處理前就存在</li>
+</ul>
 <ol start="8">
 <li>下方的顯示順序為 ?</li>
 </ol>
