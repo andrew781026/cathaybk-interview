@@ -3,6 +3,7 @@ const sass = require('gulp-sass')(require('sass'));
 const markdown = require('gulp-markdown');
 const imagemin = require('gulp-imagemin');
 const browserSync = require('browser-sync').create();
+const fs = require('fs');
 
 const ROOT = __dirname
 const config = {
@@ -22,9 +23,16 @@ const config = {
     },
 }
 
+const deleteDest = (cb) => {
+    const destFolder = ROOT + '/dest';
+    if (fs.existsSync(destFolder)) fs.rmdirSync(destFolder, {recursive: true});
+    cb();
+}
+
 const minifyMD = (cb, file) => {
     let source = file ? file : config.src.md
     return src(source)
+        .pipe(markdown())
         .pipe(dest(config.dest.md))
         .on('end', () => cb())
 }
@@ -124,6 +132,7 @@ const makeFn = (displayName, description, flags, fn) => {
 };
 
 task(makeFn("start", "open the dev-server", {}, series(
+    deleteDest,
     parallel(
         minifyHTML,
         minifyMD,
@@ -136,6 +145,7 @@ task(makeFn("start", "open the dev-server", {}, series(
 )));
 
 task(makeFn("build", "build the html . css & js files", {}, series(
+    deleteDest,
     minifyHTML,
     minifyMD,
     minifyJS,
