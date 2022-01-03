@@ -1,0 +1,131 @@
+<h1 id="cathaybk-interview">cathaybk-interview</h1>
+<p>國泰世華 - 面試切版題目</p>
+<blockquote>
+<p>題目說明</p>
+</blockquote>
+<p>1.圖檔內有設計圖共兩頁，請依照設計圖盡可能地做出符合的RWD切版 2.請勿使用框架例如vue/angular/react</p>
+<p>切版說明 1.選擇縣市後彈出分行所在位置表格 2.選擇分行後才列出日期與時間</p>
+<hr>
+<p>Quiz :</p>
+<ol>
+<li>Simply to writing down differences between <strong>one-way data flow</strong> and <strong>two-way data binding</strong>?</li>
+</ol>
+<p>單向資料流： v-model 也可以想成 :value=&quot;value&quot; + @input=&quot;$emit(&#39;input&#39;, $event.target.value)&quot; 的整合處理<br>明確聲明資料改動時更新 element 顯示值 &amp; 輸入時 , 更新 component 中的值 雙向綁定：v-model 是 vue 中的雙向綁定 , 資料會影響 element 顯示的值 , 值修改時會影響資料</p>
+<ol start="2">
+<li>What is different between <strong>computed</strong>, <strong>watch</strong> and <strong>method()</strong>?</li>
+</ol>
+<p>computed： watch： method：</p>
+<ol start="3">
+<li>List some of <strong>ES6 features</strong> and explaining a bit about it.</li>
+</ol>
+<ul>
+<li>arrow function - react / bind(this) issue</li>
+<li>spread - {...obj} [...arr] / [a,b]=arr / {x,y} = obj / ({a,b}) =&gt; a+b</li>
+<li>default value - ({a=8,b=9}) =&gt; a+b</li>
+<li>可選串連 ?. - empty checker / a?.b?.c?.d</li>
+</ul>
+<ol start="4">
+<li>Briefing a bit about <strong>Vuex</strong> and how does it work, also <strong>when most of time were you using it</strong>?</li>
+</ol>
+<ol start="5">
+<li>Explain how you can use JavaScript functions such as <strong>forEach</strong>, <strong>Map</strong>, or <strong>Reduce</strong>.</li>
+</ol>
+<pre><code class="language-javascript">const b = [1, 2, 3, 4, 5, 6];
+b.forEach(n =&gt; console(n)); // 顯示 : 123456
+const t = b.map(n =&gt; n + 3);
+t.forEach(n =&gt; console(n)); // 顯示 : 456789
+const sum = b.reduce((pre, curr) =&gt; pre + curr, 0);
+console(sum); // 顯示 : 21
+</code></pre>
+<ol start="6">
+<li>Can you explain about <strong>Pure function</strong>, what is the properties? And can you <strong>make an example</strong>.</li>
+</ol>
+<blockquote>
+<p>將相同的輸入丟入，永遠都會回傳相同的輸出，並且不對任何該函數以外的任何作用域產生影響。</p>
+</blockquote>
+<pre><code class="language-javascript">const add = (a, b) =&gt; a + b;
+console.log(add(5, 7));  // 顯示 : 12
+
+// compose 範例 : https://www.codementor.io/@michelre/use-function-composition-in-javascript-gkmxos5mj
+const compose = (...functions) =&gt; args =&gt; functions.reduceRight((arg, fn) =&gt; fn(arg), args);
+const toUpperCase = x =&gt; x.toUpperCase();
+const exclaim = x =&gt; x + &#39;!&#39;;
+
+const shout = compose(exclaim, toUpperCase);
+
+console.log(shout(&quot;send in the clowns&quot;)); // 顯示 : &quot;SEND IN THE CLOWNS!&quot;
+</code></pre>
+<blockquote>
+<p>上面的 <code>add</code> . <code>compose</code> 都是 <strong>Pure function</strong></p>
+</blockquote>
+<ol start="7">
+<li>What is different between <strong>framework base website</strong> and <strong>normal website (none framework)</strong></li>
+</ol>
+<p>framework base website(vue.react.angular)：html 的 dom 元素大多是用 JS 根據資料產生出來 normal website(jquery)：有定義 html 的 tag , html 的
+dom 元素在 JS 處理前就存在</p>
+<ol start="8">
+<li>下方的顯示順序為 ?</li>
+</ol>
+<pre><code class="language-javascript">setTimeout(b, 100)
+setTimeout(d(), 1000)
+
+a(c)
+
+var delay = 0
+for (let i = 100000; i--;) delay++
+
+e()
+
+function a(cb) {
+    console.log(&#39;a&#39;)
+    setTimeout(cb, 0)
+}
+
+function b() {
+    console.log(&#39;b&#39;)
+}
+
+function c() {
+    console.log(&#39;c&#39;)
+}
+
+function d() {
+    console.log(&#39;d&#39;)
+}
+
+function e() {
+    console.log(&#39;e&#39;)
+}
+</code></pre>
+<blockquote>
+<p>顯示 : setTimeout(d(), 1000) 這行會報錯 , 因為 setTimeout 第一個參數必須傳入函式</p>
+</blockquote>
+<ol start="9">
+<li>Implementing let summary = sum(1)(2)(3), console.log(summary).</li>
+</ol>
+<p>// Expected summary is 6</p>
+<pre><code class="language-javascript">const sum = a =&gt; (b =&gt; (c =&gt; a + b + c))
+
+const summary = sum(1)(2)(3)
+
+console.log(summary)
+</code></pre>
+<ol start="10">
+<li>What is the result of the console logout?</li>
+</ol>
+<pre><code class="language-javascript">setName = &#39;global&#39;;
+
+function test() {
+    console.log(setName);
+    var setName = &#39;local&#39;;
+    console.log(setName);
+}
+
+test()
+</code></pre>
+<blockquote>
+<p>顯示 : undefined
+local</p>
+</blockquote>
+<p><code>相關文章 : https://medium.com/@ethannam/javascripts-memory-model-7c972cd2c239</code></p>
+<p>因為 test 函式中抓到的 setName 是下面一行的變數 , 因此第一行顯示 undefined , 第三行顯示 local</p>
