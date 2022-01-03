@@ -38,6 +38,9 @@ const minifyMD = (cb, file) => {
 }
 
 const minifySCSS = (cb, file) => {
+
+    console.log(file)
+
     let source = file ? file : config.src.scss
     return src(source)
         .pipe(sass({outputStyle: 'compressed',}).on('error', sass.logError))
