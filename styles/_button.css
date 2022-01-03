@@ -77,11 +77,11 @@ button:focus:not(:focus-visible) {
 }
 
 .btn-secondary {
-    width: 100%;
+    width: 33.33%;
 }
 
-@media (min-width: 576px) {
+@media (max-width: 576px) {
     .btn-secondary {
-        width: 33.33%;
+        width: 100%;
     }
 }

@@ -1,10 +1,12 @@
 /* google font - Noto Sans TC */
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap');
 
-/* 專案的分檔 css */
+/* 分檔 css */
 @import url("_reboot.css");
 @import url("_button.css");
 @import url("_display.css");
+@import url("_select.css");
+@import url("_checkbox.css");
 
 :root {
 
@@ -16,11 +18,28 @@
 
     --blue: #0000FF;
     --white: #fff;
+    --silver-light: #e9ecef;
     --silver: #C0C0C0;
     --gray: #808080;
     --gray-dark: #707B7C;
+    --border-color: #ced4da;
 }
 
+::-webkit-scrollbar {
+    height: 12px;  /* height of horizontal scrollbar ← You're missing this */
+    width: 12px;   /* width of vertical scrollbar */
+    background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+    background-color: #dcdddf;
+}
+
+p {
+    margin: 0.25rem 0;
+}
 
 body {
     display: flex;
@@ -61,6 +80,11 @@ body {
     margin-top: 1rem;
 }
 
+.my-4 {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
 .mb-12 {
     margin-bottom: 3rem;
 }
@@ -69,7 +93,7 @@ body {
     margin-bottom: 1rem;
 }
 
-.m-4{
+.m-4 {
     margin: 1rem;
 }
 
@@ -89,50 +113,18 @@ body {
     font-size: 20px;
 }
 
-.banner {
-    height: 250px;
-    position: relative;
-}
-
-.banner img:nth-of-type(2) {
-    position: absolute;
-    left: 0;
-    width: 55%;
-    max-height: 100%;
-}
-
-.banner img:nth-of-type(1) {
-    position: absolute;
-    right: 0;
-    max-height: 100%;
-    width: 55%;
-}
-
-.banner .box {
-    position: absolute;
-    left: 100px;
-    top: 50%;
-    transform: translateY(-50%);
+a{
+    width: 100%;
     display: flex;
-    flex-direction: column;
-    z-index: 2;
-    color: var(--white);
-}
-
-.banner .box .title {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-}
-
-.banner .box .desc {
-    font-size: 1.25rem;
-    margin-bottom: 0.25rem;
+    text-decoration: none;
 }
 
 .main {
     flex: 1;
     margin-top: 1rem;
     margin-bottom: 100px;
+    display: flex;
+    flex-direction: column;
 }
 
 .goTop {

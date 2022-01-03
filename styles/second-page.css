@@ -1,0 +1,65 @@
+
+table th {
+
+}
+
+
+.form-group .row {
+    margin-bottom: 1rem;
+}
+
+.form-group label:not(.checkbox-wrap) {
+    display: inline-block;
+    width: 300px;
+    text-align: right;
+    padding-right: 0.75rem;
+    line-height: 2.25rem;
+    vertical-align: top;
+}
+
+.error-block {
+    margin-top: 0.5rem;
+    line-height: 1rem;
+    color: var(--red);
+}
+
+.form-group .input-block {
+    display: inline-block;
+    width: calc(100% - 330px);
+}
+
+.form-group input {
+    display: inline-block;
+    width: 100%;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    appearance: none;
+    border-radius: 0.25rem;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+input:disabled, input[readonly] {
+    background-color: var(--silver-light);
+    opacity: 1;
+    color: var(--silver);
+}
+
+@media (max-width: 576px) {
+
+    .form-group label {
+        display: block;
+        text-align: left;
+        padding-right: 0.75rem;
+        line-height: 2.25rem;
+    }
+
+    .form-group .input-block {
+        width: 100%;
+    }
+}
