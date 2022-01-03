@@ -44,6 +44,7 @@ Quiz :
 
 8. 下方的顯示順序為 ?
 
+```javascript
 setTimeout(b, 100)
 setTimeout(d(), 1000)
 
@@ -63,12 +64,19 @@ function b(){ console.log('b') }
 function c(){ console.log('c') }
 function d(){ console.log('d') }
 function e(){ console.log('e') }
-
+```
 
 9. Implementing let summary = sum(1)(2)(3), console.log(summary).
 
 // Expected summary is 6
 
+```javascript
+const sum = a => (b => (c => a + b + c))
+
+const summary = sum(1)(2)(3)
+
+console.log(summary)
+```
 
 10. What is the result of the console logout?
 
