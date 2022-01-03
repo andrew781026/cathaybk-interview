@@ -8,7 +8,8 @@ const config = {
     src: {
         js: ROOT + '/src/js/*.js',
         html: ROOT + '/src/*.html',
-        scss: ROOT + '/src/scss/*.?css',
+        md: ROOT + '/*.md',
+        scss: ROOT + '/src/scss/*.scss',
         images: ROOT + '/src/images/**/*',
     },
     dest: {
@@ -16,9 +17,16 @@ const config = {
         scss: ROOT + '/dest/css',
         images: ROOT + '/dest/images',
         html: ROOT + '/dest/',
+        md: ROOT + '/dest/',
     },
 }
 
+const minifyMD = (cb, file) => {
+    let source = file ? file : config.src.md
+    return src(source)
+        .pipe(dest(config.dest.md))
+        .on('end', () => cb())
+}
 
 const minifySCSS = (cb, file) => {
     let source = file ? file : config.src.scss
@@ -117,6 +125,7 @@ const makeFn = (displayName, description, flags, fn) => {
 task(makeFn("start", "open the dev-server", {}, series(
     parallel(
         minifyHTML,
+        minifyMD,
         minifyJS,
         minifySCSS,
         minifyImages,
@@ -127,6 +136,7 @@ task(makeFn("start", "open the dev-server", {}, series(
 
 task(makeFn("build", "build the html . css & js files", {}, series(
     minifyHTML,
+    minifyMD,
     minifyJS,
     minifySCSS,
     minifyImages,
