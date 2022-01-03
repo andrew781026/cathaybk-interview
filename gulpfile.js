@@ -35,10 +35,11 @@ const deleteDest = (cb) => {
     cb();
 }
 
+const copyFiles = (origin, destination) => (cb, file) => src(file ? file : origin).pipe(dest(destination)).on('end', () => cb())
+
 const minifyMD = (cb, file) => {
     let source = file ? file : config.src.md
     return src(source)
-        .pipe(markdown())
         .pipe(dest(config.dest.md))
         .on('end', () => cb())
 }
