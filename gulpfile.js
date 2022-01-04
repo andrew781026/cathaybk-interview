@@ -29,6 +29,20 @@ const config = {
     },
 }
 
+// 參考資料 : https://gulpjs.com/docs/en/api/task/
+const makeFn = (displayName, description, flags, fn) => {
+
+    // name	- string - A special property of named functions. Used to register the task. Note: name is not writable; it cannot be set or changed.
+    // displayName - string - When attached to a taskFunction creates an alias for the task. If using characters that aren't allowed in function names, use this property.
+    // description - string - When attached to a taskFunction provides a description to be printed by the command line when listing tasks.
+    // flags - object - When attached to a taskFunction provides flags to be printed by the command line when listing tasks. The keys of the object represent the flags and the values are their descriptions.
+
+    fn.displayName = displayName;
+    fn.description = description;
+    fn.flags = flags;
+    return fn;
+};
+
 const deleteDest = (cb) => {
     const destFolder = ROOT + '/dest';
     if (fs.existsSync(destFolder)) fs.rmdirSync(destFolder, {recursive: true});
@@ -37,12 +51,9 @@ const deleteDest = (cb) => {
 
 const copyFiles = (origin, destination) => (cb, file) => src(file ? file : origin).pipe(dest(destination)).on('end', () => cb())
 
-const minifyMD = (cb, file) => {
-    let source = file ? file : config.src.md
-    return src(source)
-        .pipe(dest(config.dest.md))
-        .on('end', () => cb())
-}
+const minifyMD = (...args) => copyFiles(config.src.md, config.dest.md)(...args);
+const minifyHTML = (...args) => copyFiles(config.src.html, config.dest.html)(...args);
+const minifyJS = (...args) => copyFiles(config.src.js, config.dest.js)(...args);
 
 const minifySCSS = (cb, file) => {
     let source = file ? file : config.src.scss
@@ -50,18 +61,6 @@ const minifySCSS = (cb, file) => {
         .pipe(sass({outputStyle: 'compressed',}).on('error', sass.logError))
         .pipe(dest(config.dest.scss))
         .on('end', () => cb())
-}
-
-const minifyHTML = (cb, file) => {
-    let source = file ? file : config.src.html
-    return src(source)
-        .pipe(dest(config.dest.html))
-        .on('end', () => cb())
-}
-
-const minifyJS = (cb, file) => {
-    const source = file ? file : config.src.js
-    return src(source).pipe(dest(config.dest.js)).on('end', () => cb())
 }
 
 const minifyImages = (cb) => {
@@ -123,20 +122,6 @@ const livewatch = (cb) => {
 
     cb();
 }
-
-// 參考資料 : https://gulpjs.com/docs/en/api/task/
-const makeFn = (displayName, description, flags, fn) => {
-
-    // name	- string - A special property of named functions. Used to register the task. Note: name is not writable; it cannot be set or changed.
-    // displayName - string - When attached to a taskFunction creates an alias for the task. If using characters that aren't allowed in function names, use this property.
-    // description - string - When attached to a taskFunction provides a description to be printed by the command line when listing tasks.
-    // flags - object - When attached to a taskFunction provides flags to be printed by the command line when listing tasks. The keys of the object represent the flags and the values are their descriptions.
-
-    fn.displayName = displayName;
-    fn.description = description;
-    fn.flags = flags;
-    return fn;
-};
 
 task(makeFn("start", "open the dev-server", {}, series(
     deleteDest,
